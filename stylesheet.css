@@ -1,0 +1,129 @@
+body{
+    font: 15px/1.5 'Times New Roman', Times, serif;
+    background-color: whitesmoke;
+}
+
+svg{
+    background-color: cornflowerblue;
+}
+.container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+h1{
+    text-align: center;
+    font-size: 25px;
+    color: rgb(31, 51, 72);
+    text-decoration: underline;
+}
+
+/*Header*/
+header{
+    background-color: rgb(31, 51, 72);
+    color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* min-height: 70px; */
+    border-bottom: rgb(104, 157, 195) 3px solid;
+}
+header a{
+    color: beige;
+    text-decoration: none;
+    font-size: 20px;
+}
+header h1{
+    font-size: 25px;
+    color: beige;
+    text-decoration: none;
+}
+
+header ul{
+    margin: 0;
+    padding: 0;
+}
+header li{
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+header #labs{
+    float: left;
+}
+header #labs h1{
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+header nav{
+    float: right;
+    margin-top: 8px;
+}
+/* header .highlight{
+    background-color: antiquewhite;
+    color: rgb(31, 51, 72);
+    padding-top: 15px;
+    padding-bottom: 15px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Broadway;
+    font-size: smaller;
+    margin: 5px 3px;
+    border-radius: 20px;
+} */
+header a:hover{
+    color:rgb(93, 123, 125);
+    text-decoration: underline;
+}
+footer{
+    text-align: center;
+}
+
+/*class styling*/
+.button1{
+    color: black;
+    background-color: lightblue;
+    border: 2px solid rgb(91, 44, 248);
+    padding: 5px 8px;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.button2{
+    color: black;
+    background-color: rgb(255, 184, 156);
+    border: 2px solid rgb(255, 124, 58);
+    padding: 5px 8px;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.button3{
+    color: black;
+    background-color: lightslategray;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 5px 8px;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+svg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#phrase{
+    text-align: center;
+}

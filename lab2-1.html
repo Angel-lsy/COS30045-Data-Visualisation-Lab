@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+	<meta name="description" content="Data Visualisation Exercise 1"/>
+	<meta name="keywords" content="HTML, CSS"/>
+	<meta name="author"	content="Your name here"/>
+
+    <title>COS30045 | Week 2 - Lab 2.1</title>
+
+    <link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <header>
+		<div class="container">
+			<div id="labs">
+				<h1>COS30045 - Data Visualisation</h1>
+			</div>
+			<nav>
+				<ul>
+					<li class="current"><a href="angelmain.html">Home</a></li>
+					<li><a href="lab2-1.html">Lab 2.1</a></li>
+					<li><a href="lab2-2.html">Lab 2.2</a></li>
+					<li><a href="lab2-3.html">Lab 2.3</a></li>
+                    <li><a href="lab2-4.html">Lab 2.4</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section>
+		<div class="container">
+			<h2><i>Week 2 - Lab 2.1</i></h2>
+			<h3><b>The D3 Journey starts here...</b></h3>
+			<br>
+			<h3><b>Creating and formatting paragraph elements with D3:</b></h3>
+
+			<script>
+				var dataset = [14, 5, 26, 23, 9];
+				var color1 = d3.color("red"); //call d3 library color method - call red
+
+				d3.select("body").selectAll("p")
+					.data(dataset)
+					.enter()
+					.append("p")
+					.style("color", function(d) {
+						if(d>10){
+							return "red"
+						}
+					})
+					.text(function(d){
+						if(d>10){
+							return "WARNING: Joe watched " + d + " cat videos today";
+						}
+						else{
+							return "Joe watched " + d + " cat videos today.";
+						}		
+					});
+			</script>
+		</div>
+	</section>
+	<br>
+
+	<footer class="w3-container w3-blue-grey" style="color:slategray"><i>COS30045 Data Visualisation<br>angel_lsy</i></footer>
+</body>
+</html>
+
+			<!-- <script>
+				//example from Murray
+				//select body of document
+				//append paragraph element to body
+				//insert text to newly generated <p>
+				d3.select("body").append("p").text("New paragraph!");
+			</script>
+			<p>New paragraph!</p> -->
+<!-- <script>
+				//generating new page elements with D3
+				var dataset = [14, 5, 26, 23, 9];
+
+				d3.select("body").selectAll("p") //select all p (even not exists)
+					.data(dataset) //counts and prepares data values
+					.enter() //creates a new place holder for each bit of data
+					.append("p")  //append a p element to match each placeholder
+					.text(function (d){
+						return d;  //accepts d from dataset as an input and loop through each value
+					});  //insert text value in the new p element
+			</script> -->

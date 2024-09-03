@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+	<meta name="description" content="Data Visualisation Exercise 1"/>
+	<meta name="keywords" content="HTML, CSS"/>
+	<meta name="author"	content="Angel"/>
+    <title>COS30045 | Lab 2.2</title>
+
+    <link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<!-- body -->
+<body>
+    <header>
+		<div class="container">
+			<div id="labs">
+				<h1>COS30045 - Data Visualisation</h1>
+			</div>
+			<nav>
+				<ul>
+					<li class="current"><a href="angelmain.html">Home</a></li>
+					<li><a href="lab2-1.html">Lab 2.1</a></li>
+					<li><a href="lab2-2.html">Lab 2.2</a></li>
+					<li><a href="lab2-3.html">Lab 2.3</a></li>
+                    <li><a href="lab2-4.html">Lab 2.4</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section>
+		<div class="container">
+			<h2><i>Week 2 - Lab 2.2</i></h2>
+			<h3><b>D3 Drawing with Data (Bar Chart):</b></h3>
+		<!-- script -->
+			<script>
+				var w = 500;
+				var h = 200;
+				barPadding = 2;
+
+				var dataset = [14, 5, 0, 26, 23, 9, 16, 11, 8];
+
+				var svg = d3.select("body")
+							.append("svg")
+							.attr("width", w)  //use variables w,h to specify height & width of SVG will help the code more flexible
+							.attr("height", h)
+							.attr("fill", "rgb(0,0,102"); 
+
+				svg.selectAll("rect")
+					.data(dataset)
+					.enter()
+					.append("rect")
+					.attr("x", function(d, i){
+						// return i * 21;  //rect is 20px wide, multiplying 20 will be 0 20 40 .. to have a little gap, try multiply by 21
+						return i * (w/dataset.length);
+					})
+					.attr("y", function(d){
+						return h - (d*4);
+					})	//y top left start from (0,0)
+					.attr("width", function(d){	//width of the bar
+						return w/dataset.length - barPadding;
+					})
+					.attr("height", function(d){	//height of the bar 
+						return d * 4;				//bottom left start from d*4
+					});
+
+				svg.selectAll("text")
+					.data(dataset)
+					.enter()
+					.append("text")
+					.text(function(d){
+						return d;
+					})
+					.attr("fill", "white")
+					.attr("x", function(d, i){
+						// return i * 21;  //rect is 20px wide, multiplying 20 will be 0 20 40 .. to have a little gap, try multiply by 21
+						return i * (w/dataset.length) + 16;
+					})
+					.attr("y", function(d){
+						return h - (d * 4.3);
+					})	
+			</script>
+		</div>
+	</section>
+	<br>
+	
+	<footer class="w3-container w3-blue-grey" style="color:slategray"><i>COS30045 Data Visualisation<br>angel_lsy</i></footer>
+</body>
+</html>

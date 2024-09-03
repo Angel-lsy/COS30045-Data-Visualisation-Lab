@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>COS30045 | Week 2 - Lab 2.4</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="lab2-4.js" defer></script>
+</head>
+
+<body>
+    <header>
+		<div class="container">
+			<div id="labs">
+				<h1>COS30045 - Data Visualisation</h1>
+			</div>
+			<nav>
+				<ul>
+					<li class="current"><a href="angelmain.html">Home</a></li>
+					<li><a href="lab2-1.html">Lab 2.1</a></li>
+					<li><a href="lab2-2.html">Lab 2.2</a></li>
+					<li><a href="lab2-3.html">Lab 2.3</a></li>
+                    <li><a href="lab2-4.html">Lab 2.4</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+     
+    <!-- main section -->
+    <section>
+        <div class="container" id="chart">
+            <h2><i>Week 2 - Lab 2.4</i></h2>
+			<h3><b>D3 Loading Data from CSV:</b></h3>
+            
+            <p>1. Bar Chart Showing Numbers of Wombats</p>
+            <script>
+                d3.csv("Task2-4.csv").then(function(data){
+                // console.log(data);
+                wombatSightings = data;
+                barChart(wombatSightings);
+            });
+
+            function barChart(dataset){
+                var w = 500;
+                var h = 200;
+                barPadding = 2;
+                
+                var svg = d3.select("#chart")
+                            .append("svg")
+                            .attr("width", w)  //use variables w,h to specify height & width of SVG will help the code more flexible
+                            .attr("height", h)
+                            .attr("fill", "rgb(0,0,102)"); 
+
+                svg.selectAll("rect")
+                    .data(dataset)
+                    .enter()
+                    .append("rect")
+                    .attr("x", function(d, i){
+                        return i * (w/dataset.length);
+                    })
+                    .attr("y", function(d){
+                        return h - (d.wombats * 4);
+                    })
+                    .attr("width",function(d){
+                        return w/dataset.length - barPadding;
+                    })
+                    .attr("height", function(d){
+                        return d.wombats * 4;
+                    });
+
+                svg.selectAll("text")
+                    .data(dataset)
+                    .enter()
+                    .append("text")
+                    .text(function(d){
+                        return d.wombats;
+                    })
+                    .attr("fill", "white")
+                    .attr("x", function(d, i){
+                        return i*(w/dataset.length) + 10;
+                    })
+                    .attr("y", function(d){
+                        return h - (d.wombats * 3.8);
+                    });
+            };
+            </script>
+        </div>
+        <br>
+
+        <div class="container">
+            <p id = 'pet_chart2019'>2. Bar Chart Showing Pets Ownership in 2019</p>
+            <script src="lab2-4.js"></script>
+            <br>
+            <p id="pet_chart2021">3. Bar Char Showing Pets Ownership in 2021</p>
+            
+        </div>
+    </section>
+    <br>
+
+    
+
+    <footer class="w3-container w3-blue-grey" style="color:slategray"><i>COS30045 Data Visualisation<br>angel_lsy</i></footer>
+</body>
+</html>
